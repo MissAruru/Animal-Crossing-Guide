@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-            'FOT-RodinBokutohProEB': ['Rodin', 'sans-serif'],
+            'humming' : ['Humming', 'sans-serif'],
           },
     },
   },
