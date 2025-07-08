@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-            'humming' : ['Humming', 'sans-serif'],
+            'humming' : ['Humming', 'sans-serif']
           },
     },
   },

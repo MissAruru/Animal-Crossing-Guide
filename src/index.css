@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Humming';
-  src: url('/fonts/humming.otf') format('otf');
+  src: url('../src/fonts/humming.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }

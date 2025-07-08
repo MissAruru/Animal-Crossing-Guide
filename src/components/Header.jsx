@@ -1,6 +1,9 @@
 import bugIcon from "../assets/Bug_NH_Icon.png";
 import fishIcon from "../assets/Fish_NH_Icon.png";
 import fishbugIcon from "../assets/NH-Icon-Nook_Phone-Critterpedia.webp";
+import hummingFont from "../fonts/humming.otf";
+import "../index.css"; 
+
 
 function Header() {
   return (

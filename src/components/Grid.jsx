@@ -1,42 +1,31 @@
-import React from "react";
+import React, { use } from "react";
 import { useEffect, useState } from "react";
+import GridController from "../controllers/animalsController";
 
 export function Grid() {
+
+  const {fetchData} = GridController();
+
   const [bugs, setBugs] = useState([]);
   const [fish, setFish] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const urlApiBugs = "https://api.nookipedia.com/nh/bugs";
-  const urlApiFish = "https://api.nookipedia.com/nh/fish";
+  
+  const getData = async () => {
+    const data = await fetchData("fish");
+const dataBugs = await fetchData("bugs");
+    setBugs(dataBugs);
+    setFish(data);
+  };
 
   useEffect(() => {
-    Promise.all([
-      fetch(urlApiBugs, {
-        method: "GET",
-        headers: {
-          "X-API-KEY": "e42c2f73-0e79-4a82-8aa2-e0a45e7d48d7",
-          "Content-Type": "application/json",
-        },
-      }).then((response) => response.json()),
-      fetch(urlApiFish, {
-        method: "GET",
-        headers: {
-          "X-API-KEY": "e42c2f73-0e79-4a82-8aa2-e0a45e7d48d7",
-          "Content-Type": "application/json",
-        },
-      }).then((response) => response.json()),
-    ])
-      .then(([bugsData, fishData]) => {
-        setBugs(bugsData);
-        setFish(fishData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
+    getData();
+    setLoading(false);
   }, []);
 
+
+
+  
   if (loading) {
     return <p>Loading...</p>;
   }
