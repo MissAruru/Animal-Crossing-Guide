@@ -1,4 +1,3 @@
-import React, { use, useEffect, useState } from "react";
 
 function animalsController (){
 
@@ -18,7 +17,6 @@ function animalsController (){
     try {
       const respuesta = await fetch(url, opciones);
       const data = await respuesta.json();
-      //const imges = data.map((bug) => bug.image_url);
       return data;
       
     }
@@ -30,14 +28,8 @@ function animalsController (){
 
 
 
-const updateData = async (url, data) => {
-}
-
-
-
 return {
-  fetchData,
-  updateData
+  fetchData
 }
 
 }
