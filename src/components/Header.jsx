@@ -1,11 +1,24 @@
 import bugIcon from "../assets/Bug_NH_Icon.png";
 import fishIcon from "../assets/Fish_NH_Icon.png";
 import fishbugIcon from "../assets/NH-Icon-Nook_Phone-Critterpedia.webp";
-import hummingFont from "../fonts/humming.otf";
 import "../index.css"; 
 
 
-function Header() {
+function Header({ onFilter, fish, bugs }) {
+
+function handleFilterAnimals(type) {
+  if (type === "bugs") {
+    onFilter(bugs);
+  } else if (type === "fish") {
+    onFilter(fish);
+  } else {
+    onFilter(null); 
+  }
+}
+
+
+
+
   return (
     <>
       <header>
@@ -21,6 +34,7 @@ function Header() {
               src={bugIcon}
               alt="Bug Icon"
               className="w-12 h-12 bg-white rounded-xl"
+              onClick={() => handleFilterAnimals("bugs")}
             />
           </a>
           <a href="#" className="hover:text-gray-500">
@@ -28,6 +42,7 @@ function Header() {
               src={fishIcon}
               alt="Fish Icon"
               className="w-12 h-12 bg-white rounded-xl"
+              onClick={() => handleFilterAnimals("fish")}
             />
           </a>
           <a href="#" className="hover:text-gray-500">
@@ -35,6 +50,7 @@ function Header() {
               src={fishbugIcon}
               alt="Fish Icon"
               className="w-12 h-12 bg-white rounded-xl"
+              onClick={() => handleFilterAnimals("all")}
             />
           </a>
           <hr className="w-full h-px my-8 bg-[#C39D67] border-0 "></hr>
