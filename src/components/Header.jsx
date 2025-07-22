@@ -4,17 +4,8 @@ import fishbugIcon from "../assets/NH-Icon-Nook_Phone-Critterpedia.webp";
 import "../index.css"; 
 
 
-function Header({ onFilter, fish, bugs }) {
+function Header({ onFilter }) {
 
-function handleFilterAnimals(type) {
-  if (type === "bugs") {
-    onFilter(bugs);
-  } else if (type === "fish") {
-    onFilter(fish);
-  } else {
-    onFilter(null); 
-  }
-}
 
 
 
@@ -34,7 +25,7 @@ function handleFilterAnimals(type) {
               src={bugIcon}
               alt="Bug Icon"
               className="w-12 h-12 bg-white rounded-xl"
-              onClick={() => handleFilterAnimals("bugs")}
+              onClick={() => onFilter("bugs")}
             />
           </a>
           <a href="#" className="hover:text-gray-500">
@@ -42,7 +33,7 @@ function handleFilterAnimals(type) {
               src={fishIcon}
               alt="Fish Icon"
               className="w-12 h-12 bg-white rounded-xl"
-              onClick={() => handleFilterAnimals("fish")}
+              onClick={() => onFilter("fish")}
             />
           </a>
           <a href="#" className="hover:text-gray-500">
@@ -50,7 +41,7 @@ function handleFilterAnimals(type) {
               src={fishbugIcon}
               alt="Fish Icon"
               className="w-12 h-12 bg-white rounded-xl"
-              onClick={() => handleFilterAnimals("all")}
+              onClick={() => onFilter("all")}
             />
           </a>
           <hr className="w-full h-px my-8 bg-[#C39D67] border-0 "></hr>

@@ -15,15 +15,21 @@ const handleClick = (animal) => {
     navigate("/");
     return;
   }
+  if (animal.rarity){
 
-  navigate(`/animal/${encodeURIComponent(animal.name)}`);
+    navigate(`/animal/fish/${encodeURIComponent(animal.name)}`);
+  }  else {
+    navigate(`/animal/bug/${encodeURIComponent(animal.name)}`);
+
+  }
+
 };
 
 
 
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="font-humming text-[#C39D67] text-3xl p-4">Loading...</p>;
   }
 
 
@@ -33,7 +39,7 @@ const handleClick = (animal) => {
         
         <div
           key={index}
-          className="bg-amber-200 text-black p-4 cursor-pointer hover:bg-amber-300 transition-colors rounded-lg"
+          className="bg-orange-100 text-black p-4 cursor-pointer hover:bg-amber-300 transition-colors rounded-lg"
           onClick={() => handleClick( animal )}
         >
           <img

@@ -26,26 +26,42 @@ export default function App() {
   useEffect(() => {
     getData();
   }, []);
+
 const location = useLocation();
   const isDetailPage = location.pathname.startsWith("/animal/");
   if (isDetailPage) {
     return (
       <Routes>
         <Route
-          path="/animal/:id"
+          path="/animal/bug/:id"
+          element={<AnimalDetailed fish={fish} bugs={bugs} />}
+        />
+               <Route
+          path="/animal/fish/:id"
           element={<AnimalDetailed fish={fish} bugs={bugs} />}
         />
       </Routes>
     );
   }
 
+function onFilter(tema){
+  if (tema==="bugs"){
+    setFilteredAnimals(bugs)
+  } else if (tema==="fish"){
+    setFilteredAnimals(fish)
+  } else {
+    setFilteredAnimals([...fish, ...bugs])
+  }
+
+}
+
+
+
   return (
     <>
       <div className="min-h-screen bg-[url('./assets/bg.jpg')] bg-cover bg-center">
         <Header
-          fish={fish}
-          bugs={bugs}
-          onFilter={(filtered) => setFilteredAnimals(filtered)}
+          onFilter={onFilter}
         />
         <Grid
           fish={fish}
